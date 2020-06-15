@@ -9,6 +9,10 @@ class Person():
     # redefine str(obj); it's called when we use print(obj)
     def __str__(self):
         return self._name + ' ' + str(self._age)
+    # to define a Person from his birthdate
+    @classmethod
+    def fromBirthDate(cls, name, year):
+        return cls(name, 2020 - year)
 
 # abstract class
 class Employee(Person, ABC):
@@ -29,5 +33,10 @@ class Manager(Employee):
         print("Salary from Manager is = ", self._salary)
 
 # Here you can test any example you want !
+# a Person object
 p = Person("younes", 20)
 print(p)
+
+# Second Person
+p2 = Person.fromBirthDate('mohamed', 2010)
+print(p2)
